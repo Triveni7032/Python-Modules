@@ -1,0 +1,350 @@
+`Python_Modules.md`
+
+Create **`Python_Modules.md`** and paste:
+
+```markdown
+# Python Modules
+
+A **module** is a Python file containing code such as functions, classes, and variables that can be reused in other Python programs.
+
+A Python module normally has a `.py` extension.
+
+Modules help organize code and avoid repetition.
+
+---
+
+# 1. Creating a Module
+
+Create a Python file named `calculator.py`.
+
+```python
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+This file is a module because it contains reusable Python code.
+
+2. Importing a Module
+
+The import keyword is used to import a module.
+
+import calculator
+
+print(calculator.add(10, 20))
+print(calculator.subtract(20, 5))
+
+Output:
+
+30
+15
+3. Importing Specific Functions
+
+We can import specific functions using from ... import.
+
+from calculator import add
+
+print(add(10, 20))
+
+This allows us to use add() directly without writing calculator.add().
+
+4. Importing Multiple Items
+
+Multiple functions can be imported from a module.
+
+from calculator import add, subtract
+
+print(add(10, 20))
+print(subtract(20, 5))
+5. Importing Everything
+
+We can import all names from a module using *.
+
+from calculator import *
+
+print(add(10, 20))
+
+However, using explicit imports is generally clearer and easier to maintain.
+
+6. Module Aliases
+
+The as keyword can give a module a shorter name.
+
+import calculator as calc
+
+print(calc.add(10, 20))
+
+Another example:
+
+import math as m
+
+print(m.sqrt(25))
+
+Output:
+
+5.0
+7. Built-in Modules
+
+Python provides many modules as part of its standard library.
+
+Some commonly used modules are:
+
+math
+random
+datetime
+os
+sys
+statistics
+json
+csv
+
+These modules provide ready-to-use functionality.
+
+8. math Module
+
+The math module provides mathematical functions.
+
+import math
+
+print(math.sqrt(25))
+print(math.factorial(5))
+print(math.pi)
+
+Output:
+
+5.0
+120
+3.141592653589793
+9. random Module
+
+The random module is used to generate random values.
+
+import random
+
+number = random.randint(1, 10)
+
+print(number)
+
+The result will be a random integer between 1 and 10.
+
+10. datetime Module
+
+The datetime module is used to work with dates and times.
+
+from datetime import datetime
+
+current_time = datetime.now()
+
+print(current_time)
+11. os Module
+
+The os module provides functions for interacting with the operating system.
+
+import os
+
+print(os.getcwd())
+
+getcwd() returns the current working directory.
+
+12. json Module
+
+The json module is used to work with JSON data.
+
+import json
+
+student = {
+    "name": "Triveni",
+    "age": 22
+}
+
+json_data = json.dumps(student)
+
+print(json_data)
+
+Output:
+
+{"name": "Triveni", "age": 22}
+13. User-Defined Modules
+
+A user-defined module is a Python file created by the programmer.
+
+Example:
+
+greeting.py
+def greet(name):
+    return f"Hello, {name}!"
+main.py
+import greeting
+
+print(greeting.greet("Triveni"))
+
+Output:
+
+Hello, Triveni!
+14. Variables in a Module
+
+A module can also contain variables.
+
+student.py
+name = "Triveni"
+age = 22
+
+We can access them from another file.
+
+import student
+
+print(student.name)
+print(student.age)
+15. Classes in a Module
+
+A module can contain classes.
+
+student.py
+class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+    def display(self):
+        print(self.name)
+
+Use the class from another file:
+
+from student import Student
+
+student = Student("Triveni")
+
+student.display()
+16. dir() Function
+
+The dir() function returns the names available inside a module or object.
+
+import math
+
+print(dir(math))
+
+It is useful for exploring what functions and attributes a module provides.
+
+17. name Variable
+
+Every Python module has a special variable called __name__.
+
+When a file is run directly:
+
+__name__ == "__main__"
+
+Example:
+
+def greet():
+    print("Hello Python!")
+
+
+if __name__ == "__main__":
+    greet()
+
+This allows code to run only when the file is executed directly, rather than when it is imported.
+
+18. Packages
+
+A package is a way of organizing related Python modules into directories.
+
+Example:
+
+my_package/
+│
+├── __init__.py
+├── calculator.py
+└── greeting.py
+
+The modules can be imported from the package.
+
+from my_package import calculator
+
+print(calculator.add(10, 20))
+19. Module vs Package
+Module	Package
+Usually a single .py file	Directory containing modules
+Contains functions, classes, variables	Organizes related modules
+Example: calculator.py	Example: my_package/
+20. Advantages of Modules
+
+Modules help us to:
+
+Reuse code
+Organize programs
+Reduce code duplication
+Improve readability
+Make programs easier to maintain
+Separate functionality into different files
+21. Practical Example
+calculator.py
+def add(a, b):
+    return a + b
+
+
+def multiply(a, b):
+    return a * b
+main.py
+import calculator
+
+num1 = 10
+num2 = 5
+
+print("Addition:", calculator.add(num1, num2))
+print("Multiplication:", calculator.multiply(num1, num2))
+
+Output:
+
+Addition: 15
+Multiplication: 50
+22. Quick Summary
+Module
+↓
+Python file containing reusable code
+
+import
+↓
+Imports a module
+
+from ... import
+↓
+Imports specific items
+
+as
+↓
+Creates an alias
+
+Built-in Module
+↓
+Module provided by Python
+
+User-Defined Module
+↓
+Module created by the programmer
+
+Package
+↓
+Collection of related modules
+
+dir()
+↓
+Shows available names
+
+__name__
+↓
+Identifies how a module is being used
+23. Important Keywords
+import
+from
+as
+__name__
+__main__
+24. Conclusion
+
+Modules are an important part of Python programming because they allow us to organize and reuse code.
+
+Understanding imports, built-in modules, user-defined modules, packages, and the __name__ variable helps us create cleaner and more maintainable Python applications.
+
+⭐ This file is part of my Python learning journey and focuses on building strong programming fundamentals.
