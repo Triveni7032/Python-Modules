@@ -1,4 +1,4 @@
-# Python Modules 🐍
+# Python Modules 
 
 This repository contains my learning notes and practical examples related to **Modules in Python**.
 
